@@ -1,0 +1,8 @@
+README.md
+setup.py
+encodedecodelib/__init__.py
+encodedecodelib/encodedecodefunctions.py
+encodedecodelib.egg-info/PKG-INFO
+encodedecodelib.egg-info/SOURCES.txt
+encodedecodelib.egg-info/dependency_links.txt
+encodedecodelib.egg-info/top_level.txt
