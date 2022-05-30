@@ -1,23 +1,56 @@
-from math import radians, cos, sin, asin, sqrt
-def haversine(lon1: float, lat1: float, lon2: float, lat2: float) -> float:
-    """
-    Calculate the great circle distance between two points on the 
-    earth (specified in decimal degrees), returns the distance in
-    meters.
-    All arguments must be of equal length.
-    :param lon1: longitude of first place
-    :param lat1: latitude of first place
-    :param lon2: longitude of second place
-    :param lat2: latitude of second place
-    :return: distance in meters between the two sets of coordinates
-    """
-    # Convert decimal degrees to radians
-    lon1, lat1, lon2, lat2 = map(radians, [lon1, lat1, lon2, lat2])
+import base64
+import string
 
-    # Haversine formula
-    dlon = lon2 - lon1
-    dlat = lat2 - lat1
-    a = sin(dlat/2)**2 + cos(lat1) * cos(lat2) * sin(dlon/2)**2
-    c = 2 * asin(sqrt(a))
-    r = 6371 # Radius of earth in kilometers
-    return c * r
+def base64_encode(input: string) -> string:
+    """
+    Return base64-encoded string for a given input string value
+    :param input: input string value
+    "return: base64 encoded string value
+    """
+    encodedBytes = base64.b64encode(input.encode("utf-8"));
+    return str(encodedBytes, "utf-8");
+
+def base64_decode(input: string) -> string:
+    """
+    Return base64-decoded string for a given input string value
+    :param input: base64 encoded string value
+    "return: resultant string value
+    """
+    encodedBytes = base64.b64decode(input.encode("utf-8"));
+    return str(encodedBytes, "utf-8");
+
+def ascii_encode(input: string,  errorType="strict") -> string:
+    """
+    Return ascii encoded byte value for a given input string value
+    :param input: input string value
+    :param errorType: type of error mechanism - strict, ignore, replace, backslashreplace, namereplace, xmlcharrefreplace
+    "return: ascii encoded byte value
+    """
+    return input.encode("ascii", errors=errorType);
+
+def ascii_decode(input: string, errorType="strict") -> string:
+    """
+    Return decoded string for a given ascii encoded input byte value
+    :param input: input ascii encoded string value
+    :param errorType: type of error mechanism - strict, ignore, replace, backslashreplace, namereplace, xmlcharrefreplace
+    "return: restultant string value
+    """
+    return input.decode("ascii", errors=errorType);
+
+def base64_urlsafe_encode(input: string) -> string:
+    """
+    Return base64-encoded value for a given input string value; supports +, / replaced with -,_ 
+    :param input: input string value
+    "return: base64 encoded string value
+    """
+    encodedBytes = base64.urlsafe_b64encode(data.encode("utf-8"));
+    return str(encodedBytes, "utf-8");
+
+def base64_urlsafe_decode(input: string) -> string:
+    """
+    Return base64-decoded string for a given input string value; supports +, / replaced with -,_ 
+    :param input: base64 encoded string value
+    "return: resultant string value
+    """
+    encodedBytes = base64.urlsafe_b64decode(input.encode("utf-8"));
+    return str(encodedBytes, "utf-8");
